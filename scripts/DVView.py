@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self, model, cntrl):
 
         super().__init__()
         self.setupUi()
