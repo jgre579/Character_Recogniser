@@ -8,6 +8,13 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.buildUI()
 
+    def addWidgetToStack(self, widget):
+
+        self.stack.addWidget(widget)
+
+    def display(self, index):
+        self.stack.setCurrentIndex(index)
+
     def buildUI(self):
 
         centralWidget = QWidget(self)
@@ -33,6 +40,10 @@ class MainWindow(QMainWindow):
         newModelAction = QAction('New Model', self)
 
         windowDV = QAction('Dataset Viewer', self)
+        windowBlank = QAction('Blank', self)
+
+        windowDV.triggered.connect(lambda: self.display(1))
+        windowBlank.triggered.connect(lambda: self.display(0))
 
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit application')
@@ -47,3 +58,6 @@ class MainWindow(QMainWindow):
         menuHelp = menubar.addMenu('Help')
         menuFile.addAction(newModelAction)
         menuFile.addAction(exitAction)
+
+        menuWindow.addAction(windowDV)
+        menuWindow.addAction(windowBlank)
