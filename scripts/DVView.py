@@ -11,9 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
 
+
 class DVView(QWidget):
     def __init__(self):
         super().__init__()
+        #self.controller = 
         self.createUi()   
 
     def createUi(self):
@@ -39,6 +41,7 @@ class DVView(QWidget):
             for j in range(0, 4):
 
                 digitImage = QLabel('Test')
+                #digitImage.setPixmap()
                 digitImage.setMinimumSize(QtCore.QSize(100, 100))
                 digitImage.setAlignment(QtCore.Qt.AlignCenter)
                 self.digitImages.append(digitImage)
