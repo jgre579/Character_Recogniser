@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\Jorda\OneDrive\Desktop\UoA2022\COMPSYS 302\2022-python-01\scripts\DatasetViewer.ui'
+# Form implementation generated from reading ui file 'c:\Users\Jorda\OneDrive\Desktop\UoA2022\COMPSYS 302\2022-python-01\UI Files\DatasetViewer.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -8,26 +8,21 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import *
 
 
-class DVView(QWidget):
-    def __init__(self, centralWidget):
-
-        super().__init__()
-        self.centralwidget = centralWidget
-        self.setupUi()
-        # self.show()
-
-    def setupUi(self):
-        self.setParent(self.centralwidget)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(808, 540)
+        MainWindow.setToolTipDuration(10)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setSizeConstraint(
-            QtWidgets.QLayout.SetMinAndMaxSize)
+        self.horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.scrollArea = QtWidgets.QScrollArea()
+        self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
@@ -197,18 +192,15 @@ class DVView(QWidget):
         self.gridLayout.addWidget(self.label_48, 7, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.horizontalLayout.addWidget(self.scrollArea)
-        spacerItem = QtWidgets.QSpacerItem(
-            20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.comboBox = QtWidgets.QComboBox()
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.comboBox.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
         self.comboBox.setSizePolicy(sizePolicy)
         self.comboBox.setMaximumSize(QtCore.QSize(16777215, 25))
         self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -216,46 +208,78 @@ class DVView(QWidget):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.verticalLayout.addWidget(self.comboBox)
-        self.pushButton = QtWidgets.QPushButton()
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.pushButton.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy)
         self.pushButton.setMaximumSize(QtCore.QSize(16777215, 25))
         self.pushButton.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton()
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.pushButton_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
         self.pushButton_2.setSizePolicy(sizePolicy)
         self.pushButton_2.setMaximumSize(QtCore.QSize(16777215, 25))
         self.pushButton_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButton_2.setObjectName("pushButton_2")
         self.verticalLayout.addWidget(self.pushButton_2)
-        spacerItem1 = QtWidgets.QSpacerItem(
-            20, 350, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 350, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem1)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.horizontalLayout_2.addLayout(self.horizontalLayout)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.menuBar = QtWidgets.QMenuBar(MainWindow)
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 808, 21))
+        self.menuBar.setObjectName("menuBar")
+        self.menuFile = QtWidgets.QMenu(self.menuBar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuWindow = QtWidgets.QMenu(self.menuBar)
+        self.menuWindow.setObjectName("menuWindow")
+        self.menuView = QtWidgets.QMenu(self.menuBar)
+        self.menuView.setObjectName("menuView")
+        self.menuHelp = QtWidgets.QMenu(self.menuBar)
+        self.menuHelp.setObjectName("menuHelp")
+        MainWindow.setMenuBar(self.menuBar)
+        self.toolBar = QtWidgets.QToolBar(MainWindow)
+        self.toolBar.setObjectName("toolBar")
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
+        self.actionNew_Model = QtWidgets.QAction(MainWindow)
+        self.actionNew_Model.setObjectName("actionNew_Model")
+        self.actionViewerToolbar = QtWidgets.QAction(MainWindow)
+        self.actionViewerToolbar.setObjectName("actionViewerToolbar")
+        self.actionView_Statistics = QtWidgets.QAction(MainWindow)
+        self.actionView_Statistics.setObjectName("actionView_Statistics")
+        self.actionSave_Model = QtWidgets.QAction(MainWindow)
+        self.actionSave_Model.setObjectName("actionSave_Model")
+        self.actionDataset_Viewer = QtWidgets.QAction(MainWindow)
+        self.actionDataset_Viewer.setObjectName("actionDataset_Viewer")
+        self.actionNew_Model_2 = QtWidgets.QAction(MainWindow)
+        self.actionNew_Model_2.setObjectName("actionNew_Model_2")
+        self.actionSave_Model_2 = QtWidgets.QAction(MainWindow)
+        self.actionSave_Model_2.setObjectName("actionSave_Model_2")
+        self.menuFile.addAction(self.actionNew_Model_2)
+        self.menuFile.addAction(self.actionSave_Model_2)
+        self.menuWindow.addAction(self.actionDataset_Viewer)
+        self.menuBar.addAction(self.menuFile.menuAction())
+        self.menuBar.addAction(self.menuWindow.menuAction())
+        self.menuBar.addAction(self.menuView.menuAction())
+        self.menuBar.addAction(self.menuHelp.menuAction())
 
-        self.setLayout(self.horizontalLayout_2)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.retranslateUi()
-        QtCore.QMetaObject.connectSlotsByName(self)
-
-    def retranslateUi(self):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.setToolTip(_translate(
-            "MainWindow", "vrionviwnvownvrwivowinviownvodhvauspvhauhvuph"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setToolTip(_translate("MainWindow", "vrionviwnvownvrwivowinviownvodhvauspvhauhvuph"))
         self.label_6.setText(_translate("MainWindow", "TextLabel"))
         self.label_35.setText(_translate("MainWindow", "TextLabel"))
         self.label_36.setText(_translate("MainWindow", "TextLabel"))
@@ -292,3 +316,19 @@ class DVView(QWidget):
         self.comboBox.setItemText(1, _translate("MainWindow", "Test Set"))
         self.pushButton.setText(_translate("MainWindow", "Create Filter"))
         self.pushButton_2.setText(_translate("MainWindow", "View Stats"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuWindow.setTitle(_translate("MainWindow", "Window"))
+        self.menuView.setTitle(_translate("MainWindow", "View"))
+        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
+        self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
+        self.actionNew_Model.setText(_translate("MainWindow", "New Model "))
+        self.actionViewerToolbar.setText(_translate("MainWindow", "Create Filter "))
+        self.actionViewerToolbar.setToolTip(_translate("MainWindow", "Creates a fitler "))
+        self.actionViewerToolbar.setShortcut(_translate("MainWindow", "Ctrl+Alt+F"))
+        self.actionView_Statistics.setText(_translate("MainWindow", "View Statistics"))
+        self.actionView_Statistics.setToolTip(_translate("MainWindow", "Show dataset statistics"))
+        self.actionView_Statistics.setShortcut(_translate("MainWindow", "Ctrl+Alt+S"))
+        self.actionSave_Model.setText(_translate("MainWindow", "Save Model"))
+        self.actionDataset_Viewer.setText(_translate("MainWindow", "Dataset Viewer"))
+        self.actionNew_Model_2.setText(_translate("MainWindow", "New Model"))
+        self.actionSave_Model_2.setText(_translate("MainWindow", "Save Model"))

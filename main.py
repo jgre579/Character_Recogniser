@@ -1,19 +1,44 @@
 import sys
-from PyQt5 import QtWidgets
-from scripts.DVModel import *
-from scripts.MainController import *
-from scripts.DVView import *
+from PyQt5.QtWidgets import *
+from scripts.DVView import DVView
 
 
-class App(QtWidgets.QApplication):
-    def __init__(self, sys_argv):
-        super(App, self).__init__(sys_argv)
-        self.model = DatasetViewerModel()
-        self.main_ctrl = MainController(self.model)
-        self.main_view = Ui_MainWindow(self.model, self.main_ctrl)
-        self.main_view.show()
+class MyWid(QWidget):
+    def __init__(self, parent):
+        super().__init__()
+        self.setParent(parent)
+        btn1 = QPushButton("hello")
+        btn2 = QPushButton("Guten Tag")
+
+        layout = QVBoxLayout()
+        layout.addWidget(btn1)
+        layout.addWidget(btn2)
+
+        self.setLayout(layout)
 
 
 if __name__ == '__main__':
-    app = App(sys.argv)
-    sys.exit(app.exec_())
+    app = QApplication(sys.argv)
+    window = QMainWindow()
+    centralWidget = QWidget(window)
+    window.setCentralWidget(centralWidget)
+    window.setWindowTitle('My First Application')
+    window.move(300, 300)
+    window.resize(650, 550)
+    BaseUi = QWidget(window)
+    Ui = DVView(window)
+
+    mainLayout = QVBoxLayout()
+
+    stack = QStackedWidget(window)
+    stack.addWidget(BaseUi)
+    stack.addWidget(Ui)
+
+    mainLayout.addWidget(stack)
+
+    centralWidget.setLayout(mainLayout)
+
+    stack.setCurrentIndex(1)
+
+    window.show()
+    sys.exit(app.exec())
