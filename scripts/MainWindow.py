@@ -3,8 +3,10 @@ from scripts.DVView import DVView
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, ui1, ui2):
         super().__init__()
+        self.base_ui = ui1
+        self.dv_view_ui = ui2
         self.buildUI()
 
     def addWidgetToStack(self, widget):
@@ -22,12 +24,10 @@ class MainWindow(QMainWindow):
         self.move(300, 300)
         self.resize(650, 550)
         mainLayout = QVBoxLayout()
-        BaseUi = QWidget()
-        Ui = DVView()
 
         self.stack = QStackedWidget(self)
-        self.stack.addWidget(BaseUi)
-        self.stack.addWidget(Ui)
+        self.stack.addWidget(self.base_ui)
+        self.stack.addWidget(self.dv_view_ui)
 
         mainLayout.addWidget(self.stack)
 

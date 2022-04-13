@@ -9,13 +9,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
-
-
+from scripts.MainController import MainController
+from scripts.Model import *
+from PIL import Image
 
 class DVView(QWidget):
-    def __init__(self):
+
+    def __init__(self, model):
         super().__init__()
-        #self.controller = 
+        self.model = model
         self.createUi()   
 
     def createUi(self):
@@ -36,18 +38,29 @@ class DVView(QWidget):
         self.gridLayout = QGridLayout(self.scrollAreaContents)
 
         self.digitImages = []
-
+        
         for i in range(0, 6):
             for j in range(0, 4):
 
                 digitImage = QLabel('Test')
-                #digitImage.setPixmap()
+                image_num = len(self.digitImages)
+                piximap = QtGui.QPixmap(self.build_image(self.model.get_image(image_num), image_num))
+                digitImage.setPixmap(piximap)
                 digitImage.setMinimumSize(QtCore.QSize(100, 100))
                 digitImage.setAlignment(QtCore.Qt.AlignCenter)
                 self.digitImages.append(digitImage)
                 self.gridLayout.addWidget(digitImage, i, j)
+        
 
-        spacerItem = QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+
+    
+    def build_image(self, image_data, name):
+
+        im = Image.fromarray(image_data)
+        addr = Model.get_image_address(str(name))
+        im.save(addr)
+        return addr
+
     
     def createButtonArea(self):
 
