@@ -30,26 +30,53 @@ class DVView(QWidget):
         self.horizLayout.addLayout(self.verticalLayout)
         self.setLayout(self.horizLayout)
 
+    def scrollbar_moved(self, current_row):
+        if(self.scrollbar.value() == self.scrollbar.maximum()):
+            print("Generate images: " + str(self.scrollbar.value()))
+            self.images.append(self.load_images_for_scrolling(6))
+        print(str(self.scrollbar.value()))
+        #print('Current row ' + str(current_row/6))
+        #print("Number or gerneated images: " + str(current_row*4))
+
+
     def createScrollArea(self):
         self.scrollArea = QScrollArea(self)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaContents = QWidget(self.scrollArea)
         self.scrollArea.setWidget(self.scrollAreaContents)
         self.gridLayout = QGridLayout(self.scrollAreaContents)
-
-        self.digitImages = []
         
-        for i in range(0, 6):
-            for j in range(0, 4):
+        self.scrollbar = self.scrollArea.verticalScrollBar()
+        self.scrollbar.valueChanged.connect(lambda: self.scrollbar_moved(self.current_row))
 
-                digitImage = QLabel('Test')
-                image_num = len(self.digitImages)
+        self.images = []
+        self.current_row = 0;
+        # Inital loading of images to scrollable area
+        self.images.append(self.load_images_for_scrolling(6))
+
+        #self.images.append(self.load_images_for_scrolling(20))
+
+    def load_images_for_scrolling(self, rows):
+
+        row_width = 4
+        images = []
+
+        for i in range(0, rows):
+            for j in range(0, row_width):
+
+                digitImage = QLabel()
+                image_num = len(images) + self.current_row * row_width
                 piximap = QtGui.QPixmap(self.build_image(self.model.get_image(image_num), image_num))
                 digitImage.setPixmap(piximap)
                 digitImage.setMinimumSize(QtCore.QSize(100, 100))
                 digitImage.setAlignment(QtCore.Qt.AlignCenter)
-                self.digitImages.append(digitImage)
-                self.gridLayout.addWidget(digitImage, i, j)
+                images.append(digitImage)
+                self.gridLayout.addWidget(digitImage, i + self.current_row, j)
+            self.current_row += 1
+    
+
+        return images
+            
         
 
 
