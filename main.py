@@ -11,6 +11,6 @@ if __name__ == "__main__":
     window.show()
 
     model = Model()
-    model.loadCombinedDataset()
+    model.load_combined_dataset()
 
     sys.exit(app.exec())
